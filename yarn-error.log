@@ -1,30 +1,30 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add name-of-the-module
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js init
 
 PATH: 
-  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\OpenJDK\openjdk-11.0.13_8\bin;C:\Program Files (x86)\Yarn\bin\;C:\Android\SDK\emulator;C:\Android\SDK\tools;C:\Android\SDK\tools\bin;C:\Android\SDK\platform-tools;C:\Users\rafam\AppData\Local\Yarn\bin;C:\Program Files\nodejs\;C:\Users\rafam\AppData\Local\Microsoft\WindowsApps;;C:\Users\rafam\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\rafam\AppData\Local\Yarn\bin;C:\Users\rafam\AppData\Roaming\npm
+  C:\Python27\;C:\Python27\Scripts;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\OpenJDK\openjdk-11.0.16_8\bin;C:\Users\Tiago Lima\AppData\Local\Microsoft\WindowsApps;C:\Users\Tiago Lima\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Tiago Lima\AppData\Roaming\npm;C:\Users\Tiago Lima\AppData\Local\Yarn\bin;C:\Android\Sdk\emulator;C:\Android\Sdk\tools;C:\Android\Sdk\tools\bin;C:\Android\Sdk\platform-tools
 
 Yarn version: 
-  1.22.15
+  1.22.19
 
 Node version: 
-  16.17.1
+  16.17.0
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/name-of-the-module: Not found
-      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66140:18)
-      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140885:22)
-      at Request.emit (node:events:513:28)
-      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141857:10)
-      at Request.emit (node:events:513:28)
-      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141779:12)
-      at Object.onceWrapper (node:events:627:28)
-      at IncomingMessage.emit (node:events:525:35)
-      at endReadableNT (node:internal/streams/readable:1358:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+  Error: canceled
+      at Interface.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:137150:13)
+      at Interface.emit (node:events:513:28)
+      at Interface._ttyWrite (node:readline:1085:16)
+      at ReadStream.onkeypress (node:readline:291:10)
+      at ReadStream.emit (node:events:513:28)
+      at emitKeys (node:internal/readline/utils:357:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:61:36)
+      at ReadStream.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:315:12)
 
 npm manifest: 
   {
@@ -38,6 +38,7 @@ npm manifest:
       "web": "expo start --web"
     },
     "dependencies": {
+      "@babel/preset-env": "^7.19.3",
       "@react-navigation/bottom-tabs": "^6.4.0",
       "@react-navigation/native": "^6.0.13",
       "@react-navigation/native-stack": "^6.9.0",
@@ -46,9 +47,11 @@ npm manifest:
       "react": "18.0.0",
       "react-native": "0.69.6",
       "react-native-gesture-handler": "~2.5.0",
+      "react-native-linear-gradient": "^2.6.2",
       "react-native-reanimated": "~2.9.1",
       "react-native-safe-area-context": "4.3.1",
       "react-native-screens": "~3.15.0",
+      "react-native-vector-icons": "^9.2.0",
       "react-navigation": "^4.4.4"
     },
     "devDependencies": {
@@ -962,7 +965,7 @@ Lockfile:
       "@babel/helper-create-regexp-features-plugin" "^7.18.6"
       "@babel/helper-plugin-utils" "^7.18.6"
   
-  "@babel/preset-env@^7.12.9":
+  "@babel/preset-env@^7.12.9", "@babel/preset-env@^7.19.3":
     version "7.19.3"
     resolved "https://registry.npmjs.org/@babel/preset-env/-/preset-env-7.19.3.tgz"
     integrity sha512-ziye1OTc9dGFOAXSWKUqQblYHNlBOaDl8wzqf2iKXJAltYiR3hKHUKmkt+S9PppW7RQpq4fFCrwwpIDj/f5P4w==
@@ -1776,7 +1779,7 @@ Lockfile:
   
   "@react-navigation/native-stack@^6.9.0":
     version "6.9.0"
-    resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.9.0.tgz#1e79e06da8b81f0368d3709aedca269947da3649"
+    resolved "https://registry.npmjs.org/@react-navigation/native-stack/-/native-stack-6.9.0.tgz"
     integrity sha512-cwqm/2GO0hf94OFRuH6R0beZPVKY4vMFxrdAPaDwwoukN5a0UgcsMYxrN8s2huwssTCuGScABFME9GnqG5hC5w==
     dependencies:
       "@react-navigation/elements" "^1.3.6"
@@ -2545,6 +2548,15 @@ Lockfile:
       string-width "^4.2.0"
       strip-ansi "^6.0.0"
       wrap-ansi "^6.2.0"
+  
+  cliui@^7.0.2:
+    version "7.0.4"
+    resolved "https://registry.npmjs.org/cliui/-/cliui-7.0.4.tgz"
+    integrity sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ==
+    dependencies:
+      string-width "^4.2.0"
+      strip-ansi "^6.0.0"
+      wrap-ansi "^7.0.0"
   
   clone-deep@^4.0.1:
     version "4.0.1"
@@ -3439,7 +3451,7 @@ Lockfile:
     resolved "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"
     integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
   
-  get-caller-file@^2.0.1:
+  get-caller-file@^2.0.1, get-caller-file@^2.0.5:
     version "2.0.5"
     resolved "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz"
     integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
@@ -5456,6 +5468,11 @@ Lockfile:
     resolved "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.7.tgz"
     integrity sha512-+4JpbIx42zGTONhBTIXSyfyHICHC29VTvhkkoUOJAh/XHPEixpuBduYgf6Y4y9wsN1ARlQhBBoptTvXvAFQf5g==
   
+  react-native-linear-gradient@^2.6.2:
+    version "2.6.2"
+    resolved "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.6.2.tgz"
+    integrity sha512-Z8Xxvupsex+9BBFoSYS87bilNPWcRfRsGC0cpJk72Nxb5p2nEkGSBv73xZbEHnW2mUFvP+huYxrVvjZkr/gRjQ==
+  
   react-native-reanimated@~2.9.1:
     version "2.9.1"
     resolved "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-2.9.1.tgz"
@@ -5489,6 +5506,14 @@ Lockfile:
     dependencies:
       react-freeze "^1.0.0"
       warn-once "^0.1.0"
+  
+  react-native-vector-icons@^9.2.0:
+    version "9.2.0"
+    resolved "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-9.2.0.tgz"
+    integrity sha512-wKYLaFuQST/chH3AJRjmOLoLy3JEs1JR6zMNgTaemFpNoXs0ztRnTxcxFD9xhX7cJe1/zoN5BpQYe7kL0m5yyA==
+    dependencies:
+      prop-types "^15.7.2"
+      yargs "^16.1.1"
   
   react-native@0.69.6:
     version "0.69.6"
@@ -6791,6 +6816,11 @@ Lockfile:
     resolved "https://registry.npmjs.org/y18n/-/y18n-4.0.3.tgz"
     integrity sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==
   
+  y18n@^5.0.5:
+    version "5.0.8"
+    resolved "https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz"
+    integrity sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==
+  
   yallist@^4.0.0:
     version "4.0.0"
     resolved "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
@@ -6803,6 +6833,11 @@ Lockfile:
     dependencies:
       camelcase "^5.0.0"
       decamelize "^1.2.0"
+  
+  yargs-parser@^20.2.2:
+    version "20.2.9"
+    resolved "https://registry.npmjs.org/yargs-parser/-/yargs-parser-20.2.9.tgz"
+    integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
   
   yargs@^15.1.0, yargs@^15.3.1:
     version "15.4.1"
@@ -6820,6 +6855,19 @@ Lockfile:
       which-module "^2.0.0"
       y18n "^4.0.0"
       yargs-parser "^18.1.2"
+  
+  yargs@^16.1.1:
+    version "16.2.0"
+    resolved "https://registry.npmjs.org/yargs/-/yargs-16.2.0.tgz"
+    integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
+    dependencies:
+      cliui "^7.0.2"
+      escalade "^3.1.1"
+      get-caller-file "^2.0.5"
+      require-directory "^2.1.1"
+      string-width "^4.2.0"
+      y18n "^5.0.5"
+      yargs-parser "^20.2.2"
   
   yocto-queue@^0.1.0:
     version "0.1.0"

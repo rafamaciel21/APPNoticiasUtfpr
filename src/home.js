@@ -4,47 +4,45 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
-import Login from './src/login';
-import Home from './src/home';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+
+function HomeScreen({ navigation }) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>home!</Text>
+      </View>
+    );
+  }
+        
 function Perfil({ navigation }) {
-  return (
+return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Perfil</Text>
+    <Text>Perfil</Text>
 
     </View>
-  );
+);
 }
+  
+export default function Home() {
+    
+    function MyTabs() {
+        return (
+          <Tab.Navigator>
+            <Tab.Screen name="Inicio" component={HomeScreen} />
+            <Tab.Screen name="Perfil" component={Perfil} />
+          </Tab.Navigator>
+        );
+      }
 
-
-function MyStack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Home" component={Home} />
-    </Stack.Navigator>
-  );
-}
-
-function MyTabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Perfil" component={Perfil} />
-      <Tab.Screen name="Sair" component={Login} />
-    </Tab.Navigator>
-  );
-}
-
-export default function App() {
-  return (
-    <NavigationContainer>
-      <MyStack/>
-    </NavigationContainer>
-  );
-}
-
+    return (
+        <MyTabs />
+    );
+  }
+  
+  
