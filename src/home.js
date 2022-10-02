@@ -10,7 +10,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
+//yrdyr
 
 function HomeScreen({ navigation }) {
     return (
