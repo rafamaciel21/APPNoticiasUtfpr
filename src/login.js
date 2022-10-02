@@ -7,6 +7,7 @@ import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Image } fr
 import { ScreenStack } from 'react-native-screens';
 import { createStackNavigator } from '@react-navigation/stack';
 import home from './home';
+import logo from '../assets/logos/logo-curso-fundo-transp.png';
 
 export default function Login({ navigation }) {
 
@@ -46,10 +47,12 @@ export default function Login({ navigation }) {
     return (
       <View style={styles.container}>
         <StatusBar style='auto' />
+        <Image source={logo} style={styles.imagem} />
+        <Text style={styles.texto}>Olá, Faça seu login</Text>
         <TextInput style={styles.input} value={nome} placeholder='usuario' onChangeText={setNome} />
         <TextInput style={styles.input} value={password} placeholder='senha' onChangeText={setPassword} ref={focusComp} secureTextEntry />
-        <Text style={styles.texto}>Olá Faça seu login</Text>
         <Button title='Entrar' onPress={validaCampos} color='blue' disabled={botao} />
+        <Button title='Cadastrar-se' onPress={validaCampos} color='blue' disabled={botao} />
         <StatusBar style="auto" />
       </View>
     );
@@ -78,9 +81,10 @@ export default function Login({ navigation }) {
     },
     imagem: {
       width: '100%',
-      height: 200,
+      height: 250,
       position: "relative",
       resizeMode: 'contain',
+      margintop: 20,
     }
    
   });
