@@ -33,7 +33,7 @@ export default function Home() {
     
     function MyTabs() {
         return (
-          <Tab.Navigator>
+          <Tab.Navigator screenOptions={{headerShown: false }}>
             <Tab.Screen name="Inicio" component={HomeScreen} />
             <Tab.Screen name="Perfil" component={Perfil} />
           </Tab.Navigator>

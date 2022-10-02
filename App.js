@@ -6,6 +6,7 @@ import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Image } fr
 import { useEffect, useRef, useState } from 'react';
 import Login from './src/login';
 import Home from './src/home';
+import Cadastro from './src/cadastro';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -15,16 +16,17 @@ const Tab = createBottomTabNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator  screenOptions={{headerShown: false }}>
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Cadastro" component={Cadastro} />
     </Stack.Navigator>
   );
 }
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{headerShown: false }}>
       <Tab.Screen name="Perfil" component={Perfil} />
       <Tab.Screen name="Sair" component={Login} />
     </Tab.Navigator>

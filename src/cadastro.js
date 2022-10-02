@@ -9,22 +9,28 @@ import { createStackNavigator } from '@react-navigation/stack';
 import home from './home';
 import logo from '../assets/logos/logo-curso-fundo-transp.png';
 
-export default function Login({ navigation }) {
+export default function Cadastro({ navigation }) {
 
     const [nome, setNome] = useState('');
+    const [sobrenome, setSobrenome] = useState('');
+    const [email, setEmail] = useState('');
+    const [ra, setRa] = useState('');
+    const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+
     const [botao, setBotao] = useState(true);
   
     const focusComp = useRef()
   
-    const logar = () => {
-      navigation.navigate("Home")
+    const cancelar = () => {
+        navigation.navigate("Login")
     }
 
-    const cadastro = () => {
-      navigation.navigate("Cadastro")
+    const telalogin = () => {
+        navigation.navigate("Login")
     }
-  
+ 
+
     useEffect(() => {
       setNome('')
       focusComp.current.focus()
@@ -40,23 +46,27 @@ export default function Login({ navigation }) {
     }, [password, nome])
   
     function validaCampos() {
-        if (nome == '' || password == '') {
-          alert('Preencha todos os campos')
-        } else {
-          alert('passou pelo login');
-          logar();
-        }
+      if (nome == '' || sobrenome == '' || email == '' || ra == '' || login == '' || password == '') {
+        alert('É Obrigatório que todos os campos sejam informados!');
+      } else {
+        alert('Usuário cadastro com sucesso.');
+        telalogin();
+      }
     }
  
     return (
       <View style={styles.container}>
         <StatusBar style='auto' />
-        <Image source={logo} style={styles.imagem} />
-        <Text style={styles.texto}>Olá, Faça seu login</Text>
-        <TextInput style={styles.input} value={nome} placeholder='usuario' onChangeText={setNome} />
+        <Text style={styles.texto}>Cadastre-se</Text>
+        <Text style={styles.cadastro}>Nome</Text>
+        <TextInput style={styles.input} value={nome} placeholder='Nome' onChangeText={setNome} />
+        <TextInput style={styles.input} value={sobrenome} placeholder='Sobrenome' onChangeText={setSobrenome} />
+        <TextInput style={styles.input} value={email} placeholder='E-mail' onChangeText={setEmail} />
+        <TextInput style={styles.input} value={ra} placeholder='RA' onChangeText={setRa} />
+        <TextInput style={styles.input} value={login} placeholder='Login' onChangeText={setLogin} />
         <TextInput style={styles.input} value={password} placeholder='senha' onChangeText={setPassword} ref={focusComp} secureTextEntry />
-        <Button title='Entrar' onPress={validaCampos} color='blue' disabled={botao} />
-        <Button title='Cadastrar-se' onPress={cadastro} color='blue'  />
+        <Button title='Cadastrar' onPress={validaCampos} color='blue' disabled={botao} />
+        <Button title='Cancelar' onPress={cancelar} color='blue' />
         <StatusBar style="auto" />
       </View>
     );
@@ -71,14 +81,17 @@ export default function Login({ navigation }) {
       justifyContent: 'center',
     },
     texto: {
-      fontSize: 20,
-  
+      fontSize: 20
+    },
+    cadastro:{
+        fontSize: 12,
     },
     input: {
       borderColor: '#2E2E2E',
       borderWidth: 2,
-      width: 240,
-      margin: 20,
+      width: 250,
+      height: 40,
+      margin: 10,
       padding: 10,
       backgroundColor: 'white',
   
