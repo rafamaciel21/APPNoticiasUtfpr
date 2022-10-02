@@ -60,7 +60,7 @@ export default function Login({ navigation }) {
         <StatusBar style="auto" />
       </View>
     );
-  r
+  
   }
 
   const styles = StyleSheet.create({
