@@ -58,15 +58,17 @@ export default function Cadastro({ navigation }) {
       <View style={styles.container}>
         <StatusBar style='auto' />
         <Text style={styles.texto}>Cadastre-se</Text>
-        <Text style={styles.cadastro}>Nome</Text>
+        <Text style={styles.cadastro}>Dados de Cadastro</Text>
         <TextInput style={styles.input} value={nome} placeholder='Nome' onChangeText={setNome} />
         <TextInput style={styles.input} value={sobrenome} placeholder='Sobrenome' onChangeText={setSobrenome} />
         <TextInput style={styles.input} value={email} placeholder='E-mail' onChangeText={setEmail} />
-        <TextInput style={styles.input} value={ra} placeholder='RA' onChangeText={setRa} />
+        <TextInput style={styles.input} value={ra} placeholder='RA' onChangeText={setRa}/>
         <TextInput style={styles.input} value={login} placeholder='Login' onChangeText={setLogin} />
         <TextInput style={styles.input} value={password} placeholder='senha' onChangeText={setPassword} ref={focusComp} secureTextEntry />
+        <View style={styles.row}>
         <Button title='Cadastrar' onPress={validaCampos} color='blue' disabled={botao} />
         <Button title='Cancelar' onPress={cancelar} color='blue' />
+        </View>
         <StatusBar style="auto" />
       </View>
     );
@@ -76,15 +78,19 @@ export default function Cadastro({ navigation }) {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#f3f3ff',
+      backgroundColor: '#ff8282',
       alignItems: 'center',
       justifyContent: 'center',
     },
     texto: {
-      fontSize: 20
+      fontSize: 20,
+      fontWeight: 'bold',
+      color:'#fcf2f4',
     },
     cadastro:{
-        fontSize: 12,
+      fontSize: 15,
+      fontWeight: 'bold',
+      color:'black',
     },
     input: {
       borderColor: '#2E2E2E',
@@ -102,6 +108,12 @@ export default function Cadastro({ navigation }) {
       position: "relative",
       resizeMode: 'contain',
       margintop: 10,
+    },
+    row:{
+      flexDirection: "row",
+      flexWrap: "wrap", 
+      margin: 7,
+      padding: 10,
     }
    
   });
