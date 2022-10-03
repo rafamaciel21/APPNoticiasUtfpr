@@ -52,11 +52,13 @@ export default function Login({ navigation }) {
       <View style={styles.container}>
         <StatusBar style='auto' />
         <Image source={logo} style={styles.imagem} />
-        <Text style={styles.texto}>Olá, Faça seu login</Text>
-        <TextInput style={styles.input} value={nome} placeholder='usuario' onChangeText={setNome} />
-        <TextInput style={styles.input} value={password} placeholder='senha' onChangeText={setPassword} ref={focusComp} secureTextEntry />
-        <Button title='Entrar' onPress={validaCampos} color='blue' disabled={botao} />
+        <Text style={styles.texto}>Faça o Login</Text>
+        <TextInput style={styles.input} value={nome} placeholder='Usuario' onChangeText={setNome} />
+        <TextInput style={styles.input} value={password} placeholder='Senha' onChangeText={setPassword} ref={focusComp} secureTextEntry />
+        <View style={styles.row}>
+        <Button title='Entrar' onPress={validaCampos} color='blue' disabled={botao}/>
         <Button title='Cadastrar-se' onPress={cadastro} color='blue'  />
+        </View>
         <StatusBar style="auto" />
       </View>
     );
@@ -66,17 +68,19 @@ export default function Login({ navigation }) {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#f3f3ff',
+      backgroundColor: '#ff8282',
       alignItems: 'center',
       justifyContent: 'center',
     },
     texto: {
       fontSize: 20,
-  
+      fontWeight: 'bold',
+      color:'#fcf2f4',
     },
     input: {
       borderColor: '#2E2E2E',
       borderWidth: 2,
+      fontWeight: 'bold',
       width: 240,
       margin: 20,
       padding: 10,
@@ -89,7 +93,13 @@ export default function Login({ navigation }) {
       position: "relative",
       resizeMode: 'contain',
       margintop: 10,
-    }
+    },
+    row: {
+      flexDirection: "row",
+      flexWrap: "wrap", 
+      margin: 20,
+      padding: 10,
+    }, 
    
   });
   
