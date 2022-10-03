@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import Login from './src/login';
 import Home from './src/home';
 import Cadastro from './src/cadastro';
+import Menu from './src/menu';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -20,10 +21,12 @@ function MyStack() {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Cadastro" component={Cadastro} />
+      <Stack.Screen name="Menu" component={Menu} />
     </Stack.Navigator>
   );
 }
 
+/*
 function MyTabs() {
   return (
     <Tab.Navigator screenOptions={{headerShown: false }}>
@@ -32,7 +35,7 @@ function MyTabs() {
     </Tab.Navigator>
   );
 }
-
+*/
 export default function App() {
   return (
     <NavigationContainer>
