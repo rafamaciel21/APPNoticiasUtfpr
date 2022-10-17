@@ -10,3 +10,13 @@ Aplicação de noticias da UTFPr
 5 - rodar: yarn add @react-navigation/native
 6 - npx expo install react-native-screens react-native-safe-area-context
 
+
+# Firebase:
+1 - Configurar o Banco no firebase como realtime 
+2 - Rodar do console yarn add firebase 
+3 - alterar o firebaseConfig.js conforme o que tem no projeto do firebase para conectar no banco.
+
+
+
+
+

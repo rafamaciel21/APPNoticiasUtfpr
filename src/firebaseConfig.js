@@ -1,17 +1,28 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import firebase from "firebase/app";
+import 'firebase/database';
+require('firebase/auth');
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA8pq-yCsKxbpHghN3EYBaUW__UglvCF8c",
-  authDomain: "apputfprnews.firebaseapp.com",
-  projectId: "apputfprnews",
-  storageBucket: "apputfprnews.appspot.com",
-  messagingSenderId: "1080449491976",
-  appId: "1:1080449491976:web:9a7c3f3d2eacd558969dbd"
+let firebaseConfig = {
+  apiKey: "AIzaSyC6SiGwhIW-SS4QGrBXnuaoBb6NdCQX8dc",
+  authDomain: "apputfprnoticiasteste.firebaseapp.com",
+  databaseURL: "https://apputfprnoticiasteste-default-rtdb.firebaseio.com",
+  projectId: "apputfprnoticiasteste",
+  storageBucket: "apputfprnoticiasteste.appspot.com",
+  messagingSenderId: "552052629415",
+  appId: "1:552052629415:web:eaf0b7b37706496ea02082",
+  measurementId: "G-SDH8HKTVTS"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+//firebase.authDomaininitializeApp(firebaseConfig);
+
+
+// deixando apenas um aplicativo conectar ou abrir uma conexão
+if(!firebase.apps.length){
+  firebase.initializeApp(firebaseConfig);
+}
+
+export default firebase;

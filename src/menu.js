@@ -2,46 +2,38 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, KeyboardAvoidingView } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { createStackNavigator } from '@react-navigation/stack';
+import styles from '../styles/styles';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-//yrdyr
 
-function HomeScreen({ navigation }) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>home!</Text>
-      </View>
-    );
+
+
+export default function Menu({ navigation }) {
+  const logout = () => {
+    navigation.navigate("Login")
   }
-        
-function Perfil({ navigation }) {
-return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>Perfil</Text>
-
-    </View>
-);
+  
+  return (
+    <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"}
+      style={styles.container}>
+    <TouchableOpacity  onPress={logout} style={styles.botaoLogout}>
+            <Text style={styles.textBotaoLogout}>Logout</Text>
+        </TouchableOpacity>
+    <TouchableOpacity  style={styles.botaoGenerico}>
+            <Text style={styles.textBotaoGenerico}>Calendario Universitario</Text>
+        </TouchableOpacity>
+    <TouchableOpacity  style={styles.botaoGenerico}>
+            <Text style={styles.textBotaoGenerico}>Cardápio RU</Text>
+        </TouchableOpacity>
+        <TouchableOpacity  style={styles.botaoGenerico}>
+            <Text style={styles.textBotaoGenerico}>Mapas das Salas</Text>
+        </TouchableOpacity>
+    </KeyboardAvoidingView>
+  );
 }
-  
-export default function Home() {
-    
-    function MyTabs() {
-        return (
-          <Tab.Navigator screenOptions={{headerShown: false }}>
-            <Tab.Screen name="Perfil" component={Perfil} />
-            <Tab.Screen name="Inicio" component={HomeScreen} />
-          </Tab.Navigator>
-        );
-      }
-
-    return (
-        <MyTabs />
-    );
-  }
-  
