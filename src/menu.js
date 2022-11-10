@@ -1,10 +1,7 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, KeyboardAvoidingView } from 'react-native';
-import { useEffect, useRef, useState } from 'react';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Linking,Text,TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+
 
 import { createStackNavigator } from '@react-navigation/stack';
 import styles from '../styles/styles';
@@ -25,7 +22,7 @@ export default function Menu({ navigation }) {
     <TouchableOpacity  onPress={logout} style={styles.botaoLogout}>
             <Text style={styles.textBotaoLogout}>Logout</Text>
         </TouchableOpacity>
-    <TouchableOpacity  style={styles.botaoGenerico}>
+    <TouchableOpacity  onPress={ () => {Linking.openURL('https://sei.utfpr.edu.br/sei/publicacoes/controlador_publicacoes.php?acao=publicacao_visualizar&id_documento=2735584&id_orgao_publicacao=0')}} style={styles.botaoGenerico}>
             <Text style={styles.textBotaoGenerico}>Calendario Universitario</Text>
         </TouchableOpacity>
     <TouchableOpacity  style={styles.botaoGenerico}>
@@ -34,6 +31,7 @@ export default function Menu({ navigation }) {
         <TouchableOpacity  style={styles.botaoGenerico}>
             <Text style={styles.textBotaoGenerico}>Mapas das Salas</Text>
         </TouchableOpacity>
+        
     </KeyboardAvoidingView>
   );
 }

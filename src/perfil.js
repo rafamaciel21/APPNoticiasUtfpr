@@ -1,45 +1,54 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StatusBar } from 'expo-status-bar';
 import { FlatList,ActivityIndicator,Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, Platform } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 import { createStackNavigator } from '@react-navigation/stack';
 import logo from '../assets/logos/user_image.png';
 import styles from '../styles/styles';
 import firebase from './firebaseConfig';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+    
 
   
-export default function Perfil({navigation}) {
+export default function Perfil({}) {
+ //const {idUser} = route.params; 
+  //alert(JSON.stringify(route.params?.idUser));
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [email, setEmail] = useState('');
   const [ra, setRa] = useState('');
-
-
-
+  const user = firebase.auth().currentUser;
+  
 useEffect(() => {
+  
+  carregaDados();
 
-  async function carregaDados(){
+
+   function carregaDados(){
+  
+  // const userId = firebase.database().ref();
+
+   // esse de baixo funciona
     // Leitura de dados
-    await firebase.database().ref('usuarios').on('value', (snapshot) => {
+   firebase.database().ref('/usuarios/'+user.uid).on('value', (snapshot) => {
+   //firebase.database().ref(`usuarios/-NEYv99bO8fJy9lrtMJ3`).on('value', (snapshot) => {
           setNome(snapshot.val().nome);
           setSobrenome(snapshot.val().sobrenome);
           setEmail(snapshot.val().email)
           setRa(snapshot.val().ra)
+
+      
       
       })
     }
 
-  carregaDados();
-
+    
 }, []);
 
 return (

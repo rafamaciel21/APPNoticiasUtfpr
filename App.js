@@ -2,10 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useEffect, useRef, useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { AntDesign } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
+
 
 
 import Login from './src/login';

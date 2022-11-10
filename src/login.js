@@ -2,12 +2,13 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, KeyboardAvoidingView } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Text, View, TextInput, TouchableOpacity, Image, KeyboardAvoidingView } from 'react-native';
 import logo from '../assets/logos/logo-curso-fundo-transp.png';
 import styles from '../styles/styles';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { circle } from 'react-native/Libraries/Animated/Easing';
 import firebase from './firebaseConfig';
+
 
 
 export default function Login({ navigation }) {
@@ -16,14 +17,11 @@ export default function Login({ navigation }) {
   const [password, setPassword] = useState('');
   const [errorLogin, setErrorLogin] = useState("");
 
-  const loginFirebase = () => {
+  const loginFirebase = async () => {
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
+   await firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-      
-        let user = userCredential.user;
-        navigation.navigate("Home", { idUser: user.uid }) // aqui vai passar o usuario que vamos estar conectando, sera usado mais pra frente 
-        ///navigation.navigate("Home")
+         navigation.navigate("Home")
       })
       .catch((error) => {
         setErrorLogin(true);
@@ -35,20 +33,16 @@ export default function Login({ navigation }) {
 
   const focusComp = useRef()
 
-  const logar = () => {
-    navigation.navigate("Home")
-  }
-
   const cadastro = () => {
     navigation.navigate("Cadastro")
   }
-
+  
+  // essa parte valida o ultimo login se tem o token e loga automaticamente o usuario.
   useEffect(() => {
     
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        var uid = user.uid;
-        navigation.navigate("Home", {idUser: user.uid})
+          navigation.navigate("Home")    
       } else {
         setEmail('')
         setPassword('')

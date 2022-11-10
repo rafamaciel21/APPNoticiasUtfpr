@@ -18,18 +18,30 @@ export default function Cadastro({ navigation }) {
   const focusComp = useRef()
   const [camposEmBranco, setCamposEmBranco] = useState("");
   const [errorCadastro, setErrorCadastro] = useState("");
+  const [key, setKey] = useState('');
 
 
+  const register = async () => {
 
-  const register = () => {
-
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+   await firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
       
         let user = userCredential.user;
-        cadastrarDados();
-        alert('Cadastro realizado com Sucesso!')
-        navigation.navigate("Login");
+        setKey(user.uid);
+        alert(user.uid);
+        //cadastrarDados();
+        //alert('Cadastro realizado com Sucesso!')
+        //navigation.navigate("Login");
+
+      let usuariosRef = firebase.database().ref('usuarios');
+      usuariosRef.child(user.uid).set({
+      nome: nome,
+      sobrenome: sobrenome,
+      email: email,
+      ra: ra,
+      password: password
+
+    });
     
       })
       .catch((error) => {
@@ -61,22 +73,24 @@ export default function Cadastro({ navigation }) {
       register();
     }
   }
+
+
   // inserindo os dados ao banco
-  async function cadastrarDados() {
-    let usuariosRef = await firebase.database().ref('usuarios');
-    let key = usuariosRef.push().key;
-    usuariosRef.child(key).set({
-      nome: nome,
-      sobrenome: sobrenome,
-      email: email,
-      ra: ra,
-      password: password
+  //async function cadastrarDados() {
+    //let usuariosRef = await firebase.database().ref('usuarios');
+    //let key = usuariosRef.push().key;
+    //usuariosRef.child(key).set({
+      //nome: nome,
+      // sobrenome: sobrenome,
+      // email: email,
+      // ra: ra,
+      // password: password
 
-    });
-    return;
+   // });
+    //return;
 
 
-  }
+ // }
 
   return (
     <KeyboardAvoidingView

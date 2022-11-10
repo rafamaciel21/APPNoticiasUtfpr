@@ -14,11 +14,11 @@ import Perfil from './perfil';
 import Menu from './menu';
 import Feed from './feed';
 
-const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
 export default function HomeScreen({ navigation }) {
+
     return (
       
       <Tab.Navigator>
